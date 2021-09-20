@@ -1,15 +1,28 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Logo from '../../assets/logo.svg'
 import { Container, Content } from './styles';
+import Modal from 'react-modal';
 
-export const Header: React.FC = () => (
-  <Container>
-    <Content>
-      <img src={Logo} alt="dt money" />
-      <button>
-        Nova transação
+interface IProps {
+  onOpenNewTtransactionModal(): void;
+}
+
+
+export const Header: React.FC<IProps> = ({ onOpenNewTtransactionModal }) => {
+
+
+  return (
+    <Container>
+      <Content>
+        <img src={Logo} alt="dt money" />
+        <button onClick={onOpenNewTtransactionModal}>
+          Nova transação
       </button>
-    </Content>
-  </Container>
-)
+
+      </Content>
+    </Container>
+
+  )
+}
+
 
